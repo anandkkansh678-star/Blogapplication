@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7f5f0" />
+  <title>InkWell — Stories worth sharing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="announcement"><span class="pulse"></span> A little space for big ideas <span class="announcement-right">MADE FOR CURIOUS MINDS</span></div>
+  <header class="site-header">
+    <a class="brand" href="#"><span class="brand-mark">i.</span><span>inkwell<span class="brand-dot">.</span></span></a>
+    <nav class="main-nav">
+      <a class="active" href="#home">Discover</a><a href="#latest">Latest stories</a><a href="#about">About</a>
+    </nav>
+    <div class="header-actions"><button class="icon-btn" id="themeBtn" aria-label="Toggle theme">☼</button><button class="write-btn" id="openEditor">＋ Write a story</button></div>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span></span> THE INKWELL JOURNAL</div>
+        <h1>Ideas are meant<br>to <em>travel.</em></h1>
+        <p>A thoughtful corner of the internet for stories, perspectives, and the things that make you pause.</p>
+        <a class="hero-link" href="#latest">Explore the stories <span>↗</span></a>
+      </div>
+      <div class="hero-art">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="art-card"><div class="art-top"><span>VOL. 08</span><span>EST. 2026</span></div><div class="sun"></div><div class="art-hills"></div><div class="art-caption">THE ART OF<br>LOOKING CLOSER</div></div>
+        <div class="floating-note">READ<br>MORE <span>✳</span></div>
+        <div class="hero-stamp">STORIES<br>WITH SOUL</div>
+      </div>
+    </section>
+
+    <section class="stats-strip">
+      <div><strong id="storyCount">06</strong><span>Stories to explore</span></div>
+      <div><strong>03</strong><span>Curated topics</span></div>
+      <div><strong>∞</strong><span>Ways to think</span></div>
+      <p>GOOD STORIES MAKE<br>GOOD COMPANY.</p>
+    </section>
+
+    <section class="content-section" id="latest">
+      <div class="section-heading"><div><div class="eyebrow">THE READING ROOM</div><h2>Find your next <em>read.</em></h2></div><div class="feed-status"><span class="status-dot"></span><span id="apiStatus">Connecting to story service…</span></div></div>
+      <div class="toolbar">
+        <div class="category-tabs" id="categoryTabs">
+          <button class="tab active" data-category="All">All stories</button><button class="tab" data-category="Technology">Technology</button><button class="tab" data-category="Lifestyle">Lifestyle</button><button class="tab" data-category="Creativity">Creativity</button>
+        </div>
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search stories..." /></label>
+      </div>
+      <div class="featured-grid" id="featuredGrid"></div>
+      <div class="list-heading"><h3>More to discover</h3><span>FRESH PERSPECTIVES, WEEKLY</span></div>
+      <div class="posts-grid" id="postsGrid"></div>
+      <div class="empty-state hidden" id="emptyState"><div>✳</div><h3>No stories found</h3><p>Try another search or choose a different topic.</p></div>
+    </section>
+
+    <section class="newsletter" id="about"><div class="newsletter-mark">i.</div><div><div class="eyebrow">THE SUNDAY NOTE</div><h2>A good read, <em>delivered.</em></h2><p>Get thoughtful stories and fresh perspectives in your inbox.</p></div><form id="subscribeForm"><input type="email" id="emailInput" placeholder="Your email address" required><button type="submit">Count me in ↗</button></form><small id="subscribeMessage"></small></section>
+  </main>
+
+  <footer><a class="brand" href="#"><span class="brand-mark">i.</span><span>inkwell<span class="brand-dot">.</span></span></a><p>Made for curious minds. © 2026 InkWell Journal</p><a href="#home">BACK TO TOP ↑</a></footer>
+
+  <div class="modal-backdrop hidden" id="editorModal">
+    <section class="editor-modal">
+      <button class="modal-close" id="closeEditor" aria-label="Close">×</button>
+      <div class="eyebrow">CONTRIBUTE TO INKWELL</div><h2>Write a <em>story.</em></h2>
+      <p class="modal-intro">Every great idea starts with a first draft.</p>
+      <form id="postForm" class="post-form">
+        <label>Story title<input id="postTitle" maxlength="90" placeholder="Give your story a title..." required></label>
+        <div class="form-row"><label>Your name<input id="postAuthor" placeholder="Author name" required></label><label>Topic<select id="postCategory"><option>Technology</option><option>Lifestyle</option><option>Creativity</option></select></label></div>
+        <label>Cover image URL <input id="postImage" type="url" placeholder="https://images.unsplash.com/..."></label>
+        <label>Your story<textarea id="postExcerpt" rows="5" placeholder="Start writing something wonderful..." required></textarea></label>
+        <button class="submit-post" type="submit">Publish story <span>↗</span></button>
+      </form>
+    </section>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
